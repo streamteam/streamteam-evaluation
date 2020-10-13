@@ -24,7 +24,6 @@ import org.slf4j.LoggerFactory;
 import java.io.*;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Properties;
 
 /**
  * Component which consumes calculates the latencies for some selected data streams using the send system time and receive system time CSV files
@@ -42,18 +41,6 @@ public class LatencyCalculator {
      * @param args Parameters
      */
     public static void main(String[] args) {
-        String propertiesFilePath = "/evaluationConsumer.properties";
-
-        Properties properties = new Properties();
-        try {
-            //http://stackoverflow.com/questions/29070109/how-to-read-properties-file-inside-jar
-            InputStream in = LatencyCalculator.class.getResourceAsStream(propertiesFilePath);
-            properties.load(in);
-        } catch (IOException e) {
-            logger.error("Unable to load {}.", propertiesFilePath, e);
-            System.exit(1);
-        }
-
         Map<String, Long> minimumSendSystemTimeMap = null;
         try {
             minimumSendSystemTimeMap = constructMinimumSendSystemTimeMap("../streamteam-sensor-simulator/log/rawPositionSensorDataSendSystemTimes.csv");

@@ -32,7 +32,7 @@ mvn package
 ssh -i ~/.ssh/lukasPMAAS ubuntu@$IP "rm -Rf $FOLDER"
 ssh -i ~/.ssh/lukasPMAAS ubuntu@$IP "mkdir $FOLDER"
 ssh -i ~/.ssh/lukasPMAAS ubuntu@$IP "mkdir $FOLDER/target"
-scp -i ~/.ssh/lukasPMAAS ./target/streamteam-evaluation-1.0.1-jar-with-dependencies.jar ubuntu@$IP:$FOLDER/target
+scp -i ~/.ssh/lukasPMAAS ./target/streamteam-evaluation-1.1.0-jar-with-dependencies.jar ubuntu@$IP:$FOLDER/target
 scp -i ~/.ssh/lukasPMAAS ./startEvaluationConsumer.sh ubuntu@$IP:$FOLDER
 scp -i ~/.ssh/lukasPMAAS ./stopEvaluationConsumer.sh ubuntu@$IP:$FOLDER
 scp -i ~/.ssh/lukasPMAAS ./calculateLatencies.sh ubuntu@$IP:$FOLDER

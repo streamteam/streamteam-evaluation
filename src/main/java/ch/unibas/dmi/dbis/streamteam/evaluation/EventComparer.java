@@ -40,18 +40,6 @@ public class EventComparer {
      * @param args Parameters
      */
     public static void main(String[] args) {
-        String propertiesFilePath = "/evaluationConsumer.properties";
-
-        Properties properties = new Properties();
-        try {
-            //http://stackoverflow.com/questions/29070109/how-to-read-properties-file-inside-jar
-            InputStream in = EventComparer.class.getResourceAsStream(propertiesFilePath);
-            properties.load(in);
-        } catch (IOException e) {
-            logger.error("Unable to load {}.", propertiesFilePath, e);
-            System.exit(1);
-        }
-
         List<String> eventTypes = new ArrayList<>();
         eventTypes.add("interceptionEvent");
         eventTypes.add("successfulPassEvent");

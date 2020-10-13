@@ -22,4 +22,4 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 cd $DIR
-java -DlogFileName=latencyCalculator -Xmx2g -cp ./target/streamteam-evaluation-1.0.1-jar-with-dependencies.jar ch.unibas.dmi.dbis.streamteam.evaluation.LatencyCalculator
+java -DlogFileName=latencyCalculator -Xmx2g -cp ./target/streamteam-evaluation-1.1.0-jar-with-dependencies.jar ch.unibas.dmi.dbis.streamteam.evaluation.LatencyCalculator

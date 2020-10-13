@@ -54,7 +54,7 @@ public class MongoDBEventExtractor {
      * @param args Parameters
      */
     public static void main(String[] args) {
-        String propertiesFilePath = "/evaluationConsumer.properties";
+        String propertiesFilePath = "/mongoDBEventExtractor.properties";
 
         Properties properties = new Properties();
         try {
@@ -99,7 +99,7 @@ public class MongoDBEventExtractor {
 
                 // https://mongodb.github.io/mongo-java-driver/3.6/driver/tutorials/perform-read-operations/ & https://stackoverflow.com/questions/30424894/java-syntax-with-mongodb
                 MongoCursor<Document> cursor = eventsCollection.find(Filters.eq("type", eventType))
-                        .sort(Sorts.ascending("ts")).iterator();
+                        .sort(Sorts.ascending("ts")).allowDiskUse(true).iterator();
 
                 while (cursor.hasNext()) {
                     Document eventDocument = cursor.next();

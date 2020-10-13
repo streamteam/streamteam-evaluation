@@ -22,8 +22,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 import os
 
-workerNames = ['AreaDetectionTask', 'DistanceAndSpeedAnalysisTask', 'HeatmapTask', 'KickoffDetectionTask', 'PressingAnalysisTask', 'TeamAreaTask', 'BallPossessionTask', 'KickDetectionTask', 'OffsideTask', 'SetPlayDetectionTask', 'TimeTask']
-# Not PassAndShotDetectionTask, FieldObjectStateGenerationTask and PassCombinationDetectionTask since they do not process field object state stream elements
+workerNames = ['AreaDetectionApplication', 'DistanceAndSpeedAnalysisApplication', 'HeatmapApplication', 'KickoffDetectionApplication', 'PressingAnalysisApplication', 'TeamAreaApplication', 'BallPossessionApplication', 'KickDetectionApplication', 'OffsideApplication', 'SetPlayDetectionApplication', 'TimeApplication']
+# Not PassAndShotDetectionApplication, FieldObjectStateGenerationApplication and PassCombinationDetectionApplication since they do not process field object state stream elements
 
 # https://stackoverflow.com/questions/8703496/hash-map-in-python
 processingTimestamps = {}
