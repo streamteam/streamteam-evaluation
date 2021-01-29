@@ -22,13 +22,11 @@ die() {
 	echo >&2 "$@"
 	exit 1
 }
-[ "$#" -ge 3 ] || die "requires at least one argument (sensorSimulatorNodesLine, match, numberOfSimulations), $# provided"
+[ "$#" -ge 2 ] || die "requires at least two arguments (match, numberOfSimulations), $# provided"
 
-line=$1
-match=$2
-numberOfSimulations=$3
+match=$1
+numberOfSimulations=$2
 
-echo "Line: "$line
 echo "Match: "$match
 echo "Simulated "$numberOfSimulations" times"
 
@@ -43,7 +41,7 @@ rm -R ./stats
 #https://www.cyberciti.biz/faq/bash-for-loop/
 for (( i=1; i<=$numberOfSimulations; i++))
 do
-	../streamteam-sensor-simulator/clusterScripts/startSensorSimulator.sh $line $match &
+	../streamteam-sensor-simulator/clusterScripts/startSensorSimulator.sh $match &
 done
 
 sleep 46m
@@ -52,7 +50,7 @@ echo "Slept for 46 minutes"
 
 echo "Fetches Samza metrics"
 
-../streamteam-sensor-simulator/clusterScripts/stopSensorSimulatorsOnNode.sh $line
+../streamteam-sensor-simulator/clusterScripts/stopAllSensorSimulators.sh
 echo "Stopped SensorSimulator."
 
 ./fetchLatenciesFromCluster.sh

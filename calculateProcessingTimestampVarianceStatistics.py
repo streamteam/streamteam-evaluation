@@ -22,7 +22,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import os
 
-workerNames = ['AreaDetectionApplication', 'DistanceAndSpeedAnalysisApplication', 'HeatmapApplication', 'KickoffDetectionApplication', 'PressingAnalysisApplication', 'TeamAreaApplication', 'BallPossessionApplication', 'KickDetectionApplication', 'OffsideApplication', 'SetPlayDetectionApplication', 'TimeApplication']
+workerNames = ['AreaDetectionApplication', 'DistanceAndSpeedAnalysisApplication', 'HeatmapApplication', 'KickoffDetectionApplication', 'PressingAnalysisApplication', 'TeamAreaApplication', 'BallPossessionApplication', 'KickDetectionApplication', 'OffsideApplication', 'SetPlayDetectionApplication', 'TimeApplication', 'BallFieldSideApplication']
 # Not PassAndShotDetectionApplication, FieldObjectStateGenerationApplication and PassCombinationDetectionApplication since they do not process field object state stream elements
 
 # https://stackoverflow.com/questions/8703496/hash-map-in-python

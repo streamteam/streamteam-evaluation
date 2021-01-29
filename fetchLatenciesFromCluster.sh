@@ -20,16 +20,18 @@
 
 IP=10.34.58.70
 FOLDER=streamteam-evaluation
+USER="ubuntu"
+KEY="$HOME/.ssh/DemoMAAS"
 
 #http://stackoverflow.com/questions/59895/getting-the-source-directory-of-a-bash-script-from-within
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 cd $DIR
 
-ssh -i ~/.ssh/lukasPMAAS ubuntu@$IP "rm -r $FOLDER/latencies"
-ssh -i ~/.ssh/lukasPMAAS ubuntu@$IP "$FOLDER/calculateLatencies.sh"
-ssh -i ~/.ssh/lukasPMAAS ubuntu@$IP "cd $FOLDER; tar -cf latencies.tar latencies"
-scp -i ~/.ssh/lukasPMAAS ubuntu@$IP:$FOLDER/latencies.tar ./
+ssh -i $KEY $USER@$IP "rm -r $FOLDER/latencies"
+ssh -i $KEY $USER@$IP "$FOLDER/calculateLatencies.sh"
+ssh -i $KEY $USER@$IP "cd $FOLDER; tar -cf latencies.tar latencies"
+scp -i $KEY $USER@$IP:$FOLDER/latencies.tar ./
 tar -xf latencies.tar
-ssh -i ~/.ssh/lukasPMAAS ubuntu@$IP "rm $FOLDER/latencies.tar"
+ssh -i $KEY $USER@$IP "rm $FOLDER/latencies.tar"
 rm latencies.tar

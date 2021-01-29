@@ -22,11 +22,10 @@ die() {
 	echo >&2 "$@"
 	exit 1
 }
-[ "$#" -ge 3 ] || die "requires at least three arguments (sensorSimulatorNodesLine, match, maxNumberOfSimulations), $# provided"
+[ "$#" -ge 2 ] || die "requires at least two arguments (match, maxNumberOfSimulations), $# provided"
 
-line=$1
-match=$2
-maxNumberOfSimulations=$3
+match=$1
+maxNumberOfSimulations=$2
 
 #http://stackoverflow.com/questions/59895/getting-the-source-directory-of-a-bash-script-from-within
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
@@ -55,7 +54,7 @@ do
 	sleep 2m
 
 	echo "Evaluate for "$i" concurrent matches."	
-	./evaluate.sh $line $match $i
+	./evaluate.sh $match $i
 
 	echo "Copy latencies and stats to ./evaluationRowOutput/"$i
 	mkdir ./evaluationRowOutput/$i
